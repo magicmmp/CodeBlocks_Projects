@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1536138898 source:d:\codeblocks_project\bianhaozhuanhuan\main.cpp
+	<iostream>
+	<string>
+	<cstdlib>
+

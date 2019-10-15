@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1524918276 source:d:\codeblocks_project\median of two sorted arrays\main.cpp
+	<iostream>
+	<vector>
+

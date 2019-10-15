@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1526743816 source:d:\codeblocks_project\comparison_of_sorting_methods\main.cpp
+	<iostream>
+	<ctime>
+	"Straight_Insertion_Sort.h"
+	"binary_insertion_sort.h"
+	"quick_sort.h"
+	"shell_sort.h"
+	"srand.h"
+
+1526053848 d:\codeblocks_project\comparison_of_sorting_methods\straight_insertion_sort.h
+
+1526056079 d:\codeblocks_project\comparison_of_sorting_methods\binary_insertion_sort.h
+
+1526659964 d:\codeblocks_project\comparison_of_sorting_methods\quick_sort.h
+
+1526744040 d:\codeblocks_project\comparison_of_sorting_methods\shell_sort.h
+
+1526706802 d:\codeblocks_project\comparison_of_sorting_methods\srand.h
+	<stdlib.h>
+	<time.h>
+

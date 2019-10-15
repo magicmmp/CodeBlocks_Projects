@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1546004708 source:d:\codeblocks_project\besiii_data_read\main.cpp
+	<iostream>
+	<iomanip>
+	<fstream>
+	<sstream>
+	<string>
+	<vector>
+

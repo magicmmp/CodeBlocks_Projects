@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1539017116 source:d:\codeblocks_project\static_test\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Public.h"
+
+1539017911 d:\codeblocks_project\static_test\public.h
+	<stdio.h>
+
+1539017153 source:d:\codeblocks_project\static_test\public.c
+	"Public.h"
+

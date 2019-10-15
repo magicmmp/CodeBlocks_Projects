@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1552655139 source:d:\codeblocks_project\for_test\main.cpp
+	<iostream>
+	<vector>
+	<string>
+	<algorithm>
+	<cstdlib>
+	<cstdio>
+

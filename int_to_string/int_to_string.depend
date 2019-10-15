@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1537767103 source:d:\codeblocks_project\int_to_string\main.cpp
+	<iostream>
+	<string>
+	<cstdio>
+	<cstdlib>
+

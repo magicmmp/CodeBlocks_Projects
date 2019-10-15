@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1538732344 source:d:\codeblocks_project\sort_method\main.cpp
+	<iostream>
+	<vector>
+	<cstdlib>
+	<cstdio>
+	<ctime>
+

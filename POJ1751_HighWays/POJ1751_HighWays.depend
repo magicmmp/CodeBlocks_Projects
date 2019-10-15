@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1538813126 source:d:\codeblocks_project\poj1751_highways\main.cpp
+	<iostream>
+	<vector>
+	<queue>
+	<cmath>
+	<set>
+

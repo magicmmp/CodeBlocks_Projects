@@ -1,0 +1,2 @@
+1、加入头文件，点击settings->Compiler settings，在标签中点击search directories，在Compiler中点击Add，添加已解压的boost源文件夹。
+2、

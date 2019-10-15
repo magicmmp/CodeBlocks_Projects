@@ -1,0 +1,4 @@
+﻿This is a Cpp read file test.
+I am a good boy.
+This is a Cpp read file test.
+ggg

@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1535823316 source:d:\codeblocks_project\cird_quchong\main.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+	<cstdlib>
+

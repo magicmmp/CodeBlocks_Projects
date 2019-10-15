@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1535817836 source:d:\codeblocks_project\userdefinedcmpforsort\main.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+	<cstdlib>
+

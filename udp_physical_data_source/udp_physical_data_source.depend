@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1545496246 source:d:\codeblocks_project\udp_physical_data_source\main.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<Windows.h>
+

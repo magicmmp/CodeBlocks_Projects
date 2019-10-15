@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1537447623 source:d:\codeblocks_project\xiaomi_yishu\main.cpp
+	<iostream>
+	<string>
+	<vector>
+	<cstdlib>
+	<unordered_map>
+	<set>
+	<unordered_set>
+

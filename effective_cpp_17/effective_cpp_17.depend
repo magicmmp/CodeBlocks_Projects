@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1540915770 source:d:\codeblocks_project\effective_cpp_17\main.cpp
+	<iostream>
+	<memory>
+

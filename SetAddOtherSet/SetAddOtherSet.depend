@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1535787557 source:d:\codeblocks_project\setaddotherset\main.cpp
+	<iostream>
+	<set>
+
