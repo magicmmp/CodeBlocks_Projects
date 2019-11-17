@@ -24,6 +24,7 @@ typedef struct
 }Result_Info_Struct;
 
 Result_Info_Struct Result_Info[Find_Result_Num];
+int result_count=0;
 
 //根据斗数和目标重量，给斗初始化一个重量值
 void init_hopper_weights(int Weights[] ,int nHopper,int target_weight)
@@ -65,14 +66,13 @@ void find_possible_combinations()
                 hopper_tag_array[j] |=0x1<<i;//第i号斗能参与组合成重量j
         }
     }
+}
 
-
-
+void dfs()
+{
 
 
 }
-
-
 
 
 
