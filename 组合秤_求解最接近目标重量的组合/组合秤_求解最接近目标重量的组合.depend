@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1573982457 source:e:\codeblocks_projects\组合秤_求解最接近目标重量的组合\main.c
+	<stdio.h>
+	<time.h>
+	<stdlib.h>
+
