@@ -53,7 +53,7 @@ void find_possible_combinations()
 {
     int i,j;
     //初始化标记数组
-    for(int i=0;i<=target_weight_max;i++)
+    for(i=0;i<=target_weight_max;i++)
         hopper_tag_array[i]=0;
     hopper_tag_array[0]=1;//重量为0总是能组合成的
 
@@ -62,7 +62,7 @@ void find_possible_combinations()
         for(j=1;j<=target_weight_max;j++)
         {
             if(weights[i]<=j)
-            if(hopper_tag_array[j-weights[i])
+            if(hopper_tag_array[j-weights[i]])
                 hopper_tag_array[j] |=0x1<<i;//第i号斗能参与组合成重量j
         }
     }
@@ -92,19 +92,6 @@ int main()
 
     for(i=0;i<nHoppers;i++)
         printf("%d ",weights[i]);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
