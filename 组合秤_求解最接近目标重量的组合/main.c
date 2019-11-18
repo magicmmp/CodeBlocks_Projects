@@ -6,6 +6,13 @@
 #define nHoppers         15     //有几个斗
 #define Find_Result_Num  50     //取最优的前50个合格结果看看
 
+const unsigned int bit_flag[32]=
+{
+0x00000001,0x00000002,0x00000004,0x00000008,0x00000010,0x00000020,0x00000040,0x00000080,
+0x00000100,0x00000200,0x00000400,0x00000800,0x00001000,0x00002000,0x00004000,0x00008000,
+0x00010000,0x00020000,0x00040000,0x00080000,0x00100000,0x00200000,0x00400000,0x00800000,
+0x01000000,0x02000000,0x04000000,0x08000000,0x10000000,0x20000000,0x40000000,0x80000000,
+};
 
 //hopper_number_tag[k]&0x1<<(hopper_num) 非零说明第hopper_num号斗能参与组成重量k.
 //要确保数组元素至少是32位，一位代表一个斗
@@ -54,31 +61,24 @@ void find_possible_combinations()
 {
     int i,j;
     //初始化标记数组
-    for(i=0;i<=target_weight_max;i++)
-        hopper_tag_array[i]=0;
     hopper_tag_array[0]=1;//重量为0总是能组合成的
+    for(i=1;i<=target_weight_max;i++)
+        hopper_tag_array[i]=0;
+
 
     for(i=0;i<nHoppers;i++)
     {
-        for(j=1;j<=target_weight_max;j++)
+        for(j=weights[i];j<=target_weight_max;j++)
         {
-            if(weights[i]<=j)
             if(hopper_tag_array[j-weights[i]])
-                hopper_tag_array[j] |=0x1<<i;//第i号斗能参与组合成重量j
+                hopper_tag_array[j] |=bit_flag[i];//第i号斗能参与组合成重量j
         }
     }
 }
 
 
-const unsigned int bit_flag[32]=
-{
-0x00000001,0x00000002,0x00000004,0x00000008,0x00000010,0x00000020,0x00000040,0x00000080,
-0x00000100,0x00000200,0x00000400,0x00000800,0x00001000,0x00002000,0x00004000,0x00008000,
-0x00010000,0x00020000,0x00040000,0x00080000,0x00100000,0x00200000,0x00400000,0x00800000,
-0x01000000,0x02000000,0x04000000,0x08000000,0x10000000,0x20000000,0x40000000,0x80000000,
-};
-unsigned int hopper_number_tag_tmp=0;//位i是否是1表示斗i是否在这个组合中
-int combination_weight_tmp=0;//这个组合的重量
+unsigned int hopper_number_tag_tmp;//位i是否是1表示斗i是否在这个组合中
+int combination_weight_tmp;//这个组合的重量
 
 void dfs(int next_weight)//查看哪些斗参与组合成这个重量
 {
@@ -105,7 +105,7 @@ void dfs(int next_weight)//查看哪些斗参与组合成这个重量
 }
 
 
-
+//这个算法感觉可行，但是这里不知哪里出错了
 
 
 int main()
@@ -115,12 +115,20 @@ int main()
 
 
     target_weight=100;//目标重量
-    target_weight_min=98;//目标重量下限
+    target_weight_min=99;//目标重量下限
     target_weight_max=101;//目标重量上限
+
+    result_count=0;
+    hopper_number_tag_tmp=0;//位i是否是1表示斗i是否在这个组合中
+    combination_weight_tmp=0;//这个组合的重量
+
 
     init_hopper_weights(weights,nHoppers,target_weight);
     find_possible_combinations();
+
     dfs(target_weight);
+    hopper_number_tag_tmp=0;//位i是否是1表示斗i是否在这个组合中
+    combination_weight_tmp=0;//这个组合的重量
    // dfs(target_weight-1);
    // dfs(target_weight+1);
     //dfs(target_weight-2);
@@ -131,13 +139,13 @@ int main()
     {
         if(i%4==0)
             printf("\n\n");
-        printf("斗%2d重量 %4d 克,  ",i,weights[i]);
+        printf("斗%2d重量=%4d克,  ",i,weights[i]);
     }
 
 
         printf("\n\n");
 
-    for(i=0;i<5;i++)
+    for(i=0;i<50;i++)
     {
          Result_Info[i].n_hoppers=0;
         for(j=0;j<nHoppers;j++)
@@ -147,14 +155,14 @@ int main()
         }
          printf("\n\n");
         printf("第%3d个组合  ,总重量= %4d克，参与组合斗数= %2d\n",
-               i,Result_Info[i].combination_weight,Result_Info[i].n_hoppers);
+                  i+1,Result_Info[i].combination_weight,Result_Info[i].n_hoppers);
         int num=0;
 
         for(j=0;j<nHoppers;j++)
         {
             if(Result_Info[i].hopper_number_tag&bit_flag[j])
             {
-                printf("斗%3d(%4d 克),  ",j,weights[j]);
+                printf("斗%3d(%4d克),  ",j,weights[j]);
                 num++;
                 if(num%4==0)
                     printf("\n");
