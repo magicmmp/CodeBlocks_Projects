@@ -85,6 +85,7 @@ void dfs(int next_weight)//查看哪些斗参与组合成这个重量
     int hopper_index=0;
     while(result_count<Find_Result_Num&&hopper_index<nHoppers)
     {
+        if((hopper_number_tag_tmp&bit_flag[hopper_index])==0)//防止一次组合中同一个斗被重复计算
         if(hopper_tag_array[next_weight]&bit_flag[hopper_index])//如果斗hopper_index参与了组合
         {
             hopper_number_tag_tmp|=bit_flag[hopper_index];
@@ -105,8 +106,8 @@ void dfs(int next_weight)//查看哪些斗参与组合成这个重量
 }
 
 
-//这个算法感觉可行，但是这里不知哪里出错了
-
+//特别注意：一次组合中，同一个斗不要被重复计算
+//此算法暂时没发现问题，有空与暴力算法结果一一比较，才能确认是完全正确的。
 
 int main()
 {
@@ -145,7 +146,7 @@ int main()
 
         printf("\n\n");
 
-    for(i=0;i<50;i++)
+    for(i=0;i<Find_Result_Num;i++)
     {
          Result_Info[i].n_hoppers=0;
         for(j=0;j<nHoppers;j++)
@@ -154,7 +155,22 @@ int main()
                 Result_Info[i].n_hoppers++;
         }
          printf("\n\n");
-        printf("第%3d个组合  ,总重量= %4d克，参与组合斗数= %2d\n",
+
+         //检验实际被选中的斗总重量和递归计算的总重量是否相等
+        char CheckBuffer[2][4]={"Yes"," No"};
+        int buffer_Index;
+        int actual_weight_tmp=0;
+        for(j=0;j<nHoppers;j++)
+        {
+            if(Result_Info[i].hopper_number_tag&bit_flag[j])
+                actual_weight_tmp+=weights[j];
+        }
+        if(actual_weight_tmp==Result_Info[i].combination_weight)
+            buffer_Index=0;
+        else
+            buffer_Index=1;
+
+        printf("%s ,第%3d个组合  ,总重量= %4d克，参与组合斗数= %2d\n",CheckBuffer[buffer_Index],
                   i+1,Result_Info[i].combination_weight,Result_Info[i].n_hoppers);
         int num=0;
 
