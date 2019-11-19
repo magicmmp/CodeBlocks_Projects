@@ -3,7 +3,8 @@
 #include <stdlib.h>
 
 #define Tag_Array_Length 5000  //暂时不降低精度，就以g为单位
-#define nHoppers         15     //有几个斗
+ //有几个斗,运算时斗号从0开始，范围0到nHoppers-1.显示给人看则是从1开始。
+#define nHoppers         15
 #define Find_Result_Num  50     //取最优的前50个合格结果看看
 
 const unsigned int bit_flag[32]=
@@ -140,7 +141,7 @@ int main()
     {
         if(i%4==0)
             printf("\n\n");
-        printf("斗%2d重量=%4d克,  ",i,weights[i]);
+        printf("斗%2d重量=%4d克,  ",i+1,weights[i]);
     }
 
 
@@ -178,7 +179,7 @@ int main()
         {
             if(Result_Info[i].hopper_number_tag&bit_flag[j])
             {
-                printf("斗%2d(%4d克),  ",j,weights[j]);
+                printf("斗%2d(%4d克),  ",j+1,weights[j]);
                 num++;
                 if(num%4==0)
                     printf("\n");
