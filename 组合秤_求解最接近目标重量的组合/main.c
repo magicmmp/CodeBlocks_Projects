@@ -115,9 +115,9 @@ int main()
     int i,j;
 
 
-    target_weight=100;//目标重量
-    target_weight_min=99;//目标重量下限
-    target_weight_max=101;//目标重量上限
+    target_weight=1000;//目标重量
+    target_weight_min=995;//目标重量下限
+    target_weight_max=1001;//目标重量上限
 
     result_count=0;
     hopper_number_tag_tmp=0;//位i是否是1表示斗i是否在这个组合中
@@ -170,7 +170,7 @@ int main()
         else
             buffer_Index=1;
 
-        printf("%s ,第%3d个组合  ,总重量= %4d克，参与组合斗数= %2d\n",CheckBuffer[buffer_Index],
+        printf("%s ,第%3d个组合  ,总重量= %4d克，参与组合斗数=%2d\n",CheckBuffer[buffer_Index],
                   i+1,Result_Info[i].combination_weight,Result_Info[i].n_hoppers);
         int num=0;
 
@@ -178,7 +178,7 @@ int main()
         {
             if(Result_Info[i].hopper_number_tag&bit_flag[j])
             {
-                printf("斗%3d(%4d克),  ",j,weights[j]);
+                printf("斗%2d(%4d克),  ",j,weights[j]);
                 num++;
                 if(num%4==0)
                     printf("\n");
