@@ -42,7 +42,7 @@ void init_hopper_weights(int Weights[] ,int nHopper,int target_weight)
     float D_ratio=(float)0.5;
     //期望参与组合的斗是总斗数的三分一
     //由此得出每个斗应该初始化的重量
-    int  hopper_weight=target_weight*3/nHopper;
+    int  hopper_weight=target_weight*2/nHopper;//总是期望一半的斗参与组合，能得到最多的有效组合数?
     int  D_value=hopper_weight*D_ratio;//斗初始化重量的上限偏差
     int flag=1;
     for(i=0;i<nHopper;i++)
