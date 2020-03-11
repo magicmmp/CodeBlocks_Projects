@@ -29,17 +29,14 @@ void VB_Control_Init_when_PwrON(int target_wt)
 	printf("目标重量=%d 克, 快=%d, 中=%d, 慢=%d\n",target_wt/10,weight_coarse_1s/10,weight_medium_1s/10,weight_fine_1s/10);
 
     int w_fine,w_medium,w_coarse;
-    w_fine=target_wt-weight_fine_1s*2;
-    w_medium=target_wt-weight_medium_1s*1;
+    w_fine=target_wt-weight_fine_1s;
+    w_medium=target_wt-weight_medium_1s*1.6;
     w_coarse=target_wt-weight_coarse_1s*3;
     printf("已有重量小于 %d 克,处于快加阶段\n",w_coarse/10);
     printf("已有重量在   %d 克和 %d 克之间,处于中加阶段\n",w_coarse/10,w_medium/10);
     printf("已有重量在   %d 克和 %d 克之间,处于慢加阶段\n",w_medium/10,w_fine/10);
     printf("已有重量大于 %d 克,处于补料阶段\n",w_fine/10);
     printf("\n\n");
-
-
-
 
 }
 
